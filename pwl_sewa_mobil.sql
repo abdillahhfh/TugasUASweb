@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2021 at 07:01 PM
+-- Generation Time: Jun 14, 2021 at 08:54 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,7 +61,8 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`no_ktp`, `nama`, `jk`, `alamat`) VALUES
-('3328180402010001', 'Sani', 'Laki-Laki', 'Tegal');
+('3328180402010001', 'Sani', 'Laki-Laki', 'Tegal'),
+('993128476152312', 'Unyil', 'Laki-Laki', '');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `no_ktp`, `no_plat`, `tanggal_sewa`, `lama_sewa`, `total_harga`) VALUES
-(1, 'Sani', 'H 1234 IJ', '2021-06-15', 2, 800000);
+(1, '993128476152312', 'H 1234 IJ', '2021-06-15', 2, 800000),
+(2, '3328180402010001', 'H 1234 IJ', '2021-06-16', 3, 1200000);
 
 --
 -- Indexes for dumped tables
@@ -115,7 +117,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

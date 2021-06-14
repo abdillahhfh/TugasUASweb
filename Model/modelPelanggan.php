@@ -33,6 +33,12 @@ class modelPelanggan
         return $this->execute($query);
     }
 
+    function cariPelanggan($nama)
+    {
+        $query = "SELECT * FROM pelanggan WHERE nama LIKE '%$nama%'";
+        return $this->execute($query);
+    }
+
     function insertPelanggan($ktp, $nama, $jenisKelamin, $alamat)
     {
         $query = "INSERT INTO pelanggan VALUES ('$ktp', '$nama', '$jenisKelamin', '$alamat')";

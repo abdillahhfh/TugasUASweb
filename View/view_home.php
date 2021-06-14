@@ -1,6 +1,7 @@
-<?php 
-    require_once("Model/modelPelanggan.php");
-    require_once("Model/modelTransaksi.php");
+<?php
+require_once("Model/modelPelanggan.php");
+require_once("Model/modelTransaksi.php");
+require_once("Model/modelPelanggan.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +20,21 @@
             text-decoration: none;
         }
 
-        .home{
+        .home {
             text-align: center;
+        }
+
+        form {
+            margin-top: 50px;
+        }
+
+        #search {
+            padding: 5px;
+            width: 230px;
+        }
+
+        #search-button {
+            padding: 5px;
         }
     </style>
 </head>
@@ -31,10 +45,53 @@
         <h1>Jasa Persewaan Mobil</h1><br>
         <a href="index.php?i=pesan">Pesan langsung</a>
         <a href="index.php?i=mobil">Lihat daftar mobil</a>
+        <div class="pencarian">
+            <form method="GET">
+                <input id="search" placeholder="cari nama pelanggan" type="text" name="search">
+                <button id="search-button">Cari</button>
+            </form>
+        </div>
+        <?php if (isset($_GET["search"])) : ?>
+            <div class="content" style="text-align: center;">
+                <br>
+                <h1>Daftar Transaksi</h1>
+                <table border="1" cellpadding="15" cellspacing="0" align="center">
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>Plat</th>
+                        <th>Tanggal Sewa</th>
+                        <th>Lama Sewa</th>
+                        <th>Total</th>
+                    </tr>
+
+                    <?php
+                    $transaksi = new modelTransaksi();
+                    $data = $transaksi->cariTransaksi($_GET["search"]);
+                    // $row = $pelanggan->fetch($data);
+                    // echo "<pre>";
+                    // var_dump($row);
+                    // echo "</pre>";
+                    $i = 1;
+                    while ($row = $this->modelMobil->fetch($data)) {
+                        echo
+                        "<tr>
+                    <td>$i</td>
+                    <td align='left'>$row[0]</td>
+                    <td>$row[2]</td>
+                    <td>$row[3]</td>
+                    <td>$row[4]</td>
+                    <td>$row[5]</td>
+                </tr>";
+                        $i++;
+                    }
+                    ?>
+
+                </table>
+            </div>
+        <?php endif ?>
     </div>
-    <div class="pencarian">
-        <form action=""></form>
-    </div>
+
 </body>
 
 </html>

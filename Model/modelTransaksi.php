@@ -11,6 +11,11 @@ class modelTransaksi
     {
         return mysqli_query($this->connect, $query);
     }
+    function cariTransaksi($nama)
+    {
+        $query = "SELECT * FROM transaksi WHERE id_transaksi LIKE '%$nama%' OR no_plat LIKE '%$nama%'";
+        return $this->execute($query);
+    }
     function selectAllTransaksi()
     {
         $query = "SELECT * FROM transaksi";
