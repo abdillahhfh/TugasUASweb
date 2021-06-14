@@ -6,20 +6,25 @@ require_once("Model/modelTransaksi.php");
 $transaksi = new modelTransaksi;
 $pelanggan = new modelPelanggan;
 $mobil = new modelMobil;
+
 if (isset($_POST["submit"])) {
-    $plat = $_POST["plat"];
-    $date = "";
-    $namaMobil = $_POST["nama-mobil"];
-    $merk = $_POST["merk"];
-    $lama_sewa = $_POST["lama-sewa"];
-    $tarif = $_POST["tarif"];
-    $total = $tarif * $lama_sewa;
-    $nik = $_POST["merk"];
+    $nik = $_POST["nik"];
     $nama = $_POST["nama"];
     $jk = $_POST["jenisKelamin"];
     $alamat = $_POST["alamat"];
-    $pelanggan->insertPelanggan($merk, $nama, $jk, $alamat);
-    $transaksi->insertTransaksi($merk, $plat, $date, $lama_sewa, $total);
+    
+    $namaMobil = $_POST["nama-mobil"];
+    $merk = $_POST["merk"];
+    $tarif = $_POST["tarif"];
+
+    $plat = $_POST["plat"];
+    $date = $_POST["date"];
+    $lama_sewa = $_POST["lama-sewa"];
+        
+    $total = $tarif * $lama_sewa;
+
+    $pelanggan->insertPelanggan($nik, $nama, $jk, $alamat);
+    $transaksi->insertTransaksi($nama, $plat, $date, $lama_sewa, $total);
 }
 ?>
 <!DOCTYPE html>
@@ -68,6 +73,15 @@ if (isset($_POST["submit"])) {
                             <input name="tarif" type="number" class="form-control" id="tarif" placeholder="Tarif Sewa Per Hari" readonly>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="date" class="col-sm-3 col-form-label">Date</label>
+                        <div class="col-sm-9">
+                            <input name="date" type="date" class="form-control" id="date" placeholder="date">
+                        </div>
+                    </div>
+
+
                     <div class="form-group row">
                         <label for="lama-sewa" class="col-sm-3 col-form-label">Lama Sewa</label>
                         <div class="col-sm-9">

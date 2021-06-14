@@ -35,7 +35,7 @@ class modelTransaksi
 
     function insertTransaksi($no_ktp, $no_plat, $tanggal_sewa, $lama_sewa, $total)
     {
-        $query = "INSERT INTO transaksi VALUES ('$no_ktp', '$no_plat', '$tanggal_sewa', '$lama_sewa', $total)";
+        $query = "INSERT INTO transaksi VALUES ('', '$no_ktp', '$no_plat', '$tanggal_sewa', '$lama_sewa', $total)";
         return $this->execute($query);
     }
 
