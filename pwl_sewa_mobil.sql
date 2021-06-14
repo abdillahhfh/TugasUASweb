@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2021 at 07:00 PM
+-- Generation Time: Jun 14, 2021 at 07:01 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `pwl_sewa_mobil`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mobil`
+--
+
+CREATE TABLE `mobil` (
+  `no_plat` varchar(13) NOT NULL,
+  `nama` varchar(15) NOT NULL,
+  `merk` varchar(15) NOT NULL,
+  `tarif` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mobil`
+--
+
+INSERT INTO `mobil` (`no_plat`, `nama`, `merk`, `tarif`) VALUES
+('H 1234 IJ', 'New Avanza', 'Toyota', 400000),
+('H 5678 KL', 'Extra Terios', 'Daihatsu', 600000),
+('H 9876 MN', 'Pajero Sport', 'Mitsubishi', 700000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `no_ktp` char(16) NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `jk` varchar(10) NOT NULL,
+  `alamat` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`no_ktp`, `nama`, `jk`, `alamat`) VALUES
+('3328180402010001', 'Sani', 'Laki-Laki', 'Tegal');
 
 -- --------------------------------------------------------
 
@@ -46,6 +88,18 @@ INSERT INTO `transaksi` (`id_transaksi`, `no_ktp`, `no_plat`, `tanggal_sewa`, `l
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `mobil`
+--
+ALTER TABLE `mobil`
+  ADD PRIMARY KEY (`no_plat`);
+
+--
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`no_ktp`);
 
 --
 -- Indexes for table `transaksi`
