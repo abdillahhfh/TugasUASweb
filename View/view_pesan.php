@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     $nama = $_POST["nama"];
     $jk = $_POST["jenisKelamin"];
     $alamat = $_POST["alamat"];
-    
+
     $namaMobil = $_POST["nama-mobil"];
     $merk = $_POST["merk"];
     $tarif = $_POST["tarif"];
@@ -20,11 +20,11 @@ if (isset($_POST["submit"])) {
     $plat = $_POST["plat"];
     $date = $_POST["date"];
     $lama_sewa = $_POST["lama-sewa"];
-        
+
     $total = $tarif * $lama_sewa;
 
     $pelanggan->insertPelanggan($nik, $nama, $jk, $alamat);
-    $transaksi->insertTransaksi($nama, $plat, $date, $lama_sewa, $total);
+    $transaksi->insertTransaksi($nik, $plat, $date, $lama_sewa, $total);
 }
 ?>
 <!DOCTYPE html>
@@ -41,8 +41,8 @@ if (isset($_POST["submit"])) {
 <body>
     <br>
     <div class="container container-sm">
-    <!-- <a href="./index.php"><p>Menu Utama</p></a> -->
-    <h1 style="text-align: center;">Pemesanan sewa mobil</h1>
+        <!-- <a href="./index.php"><p>Menu Utama</p></a> -->
+        <h1 style="text-align: center;">Pemesanan sewa mobil</h1>
         <div class="row justify-content-center">
             <div class="col-6">
                 <form class="my-5" method="POST">
