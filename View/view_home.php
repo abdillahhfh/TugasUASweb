@@ -1,3 +1,8 @@
+<?php 
+    require_once("Model/modelPelanggan.php");
+    require_once("Model/modelTransaksi.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +31,9 @@
         <h1>Jasa Persewaan Mobil</h1><br>
         <a href="index.php?i=pesan">Pesan langsung</a>
         <a href="index.php?i=mobil">Lihat daftar mobil</a>
+    </div>
+    <div class="pencarian">
+        <form action=""></form>
     </div>
 </body>
 
