@@ -10,6 +10,7 @@
 
         function __construct(){
 			$this->modelMobil = new modelMobil();
+            $this->modelTransaksi = new modelTransaksi();
 
         }
     

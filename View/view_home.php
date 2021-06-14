@@ -47,7 +47,7 @@ require_once("Model/modelPelanggan.php");
         <a href="index.php?i=mobil">Lihat daftar mobil</a>
         <div class="pencarian">
             <form method="GET">
-                <input id="search" placeholder="cari nama pelanggan" type="text" name="search">
+                <input id="search" placeholder="Cari ID pelanggan..." type="text" name="search">
                 <button id="search-button">Cari</button>
             </form>
         </div>
@@ -67,13 +67,13 @@ require_once("Model/modelPelanggan.php");
 
                     <?php
                     $transaksi = new modelTransaksi();
-                    $data = $transaksi->cariTransaksi($_GET["search"]);
+                    $data = $transaksi->selectTransaksi($_GET["search"]);
                     // $row = $pelanggan->fetch($data);
                     // echo "<pre>";
                     // var_dump($row);
                     // echo "</pre>";
                     $i = 1;
-                    while ($row = $this->modelMobil->fetch($data)) {
+                    while ($row = $this->modelTransaksi->fetch($data)) {
                         echo
                         "<tr>
                     <td>$i</td>
